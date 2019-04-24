@@ -1,0 +1,373 @@
+/* MAIN.C file
+ * 
+ * Copyright (c) 2002-2005 STMicroelectronics
+ */
+
+#include "stm8s.h"
+#include "stm8s_adc1.h"
+#include "main.h"
+
+/******************************************************************************
+ * Declaração de variáveis globais:                                           *  
+ ******************************************************************************/ 
+	
+typedef struct{
+	 
+	 uint8_t message[17]; 
+	  
+}string;
+
+ uint8_t  controle              = 0;
+ uint8_t  quantidade_bytes      = 0;
+ uint8_t  data_buffer[]         = {0x00, 0x00, 0x00}; 
+ uint8_t *tx_buffer             = (uint8_t *)0;
+ uint8_t *aux                   = (uint8_t *)0;
+	
+ uint16_t  n                     = 0;
+ uint16_t  contador_temporizador = 0;
+
+
+/******************************************************************************
+ * Funções e Procedimentos                                                    * 
+ ******************************************************************************/
+void timerInit           (void);
+void   adcInit           (void);
+void    ioInit           (void);
+void  commInit           (void);
+void   lcdInit           (void);
+void  uartInit           (void);
+void  uartDeInit         (void);
+
+void atualiza_menu       (void);
+void atualiza_display    (void);
+void leitura_comunicacao (void);
+//void desliga_saidas      (void);
+//void buzzer              (void);
+//void tx_uart             (void);
+void lcd_clear           (void);
+void lcd_write_string    (const uint8_t *string);
+void lcd_set_line        (uint8_t line);
+void lcd_write           (uint8_t data, uint8_t type);
+void lcd_write_nibble    (uint8_t data, uint8_t type);
+/******************************************************************************
+ * Loop principal:                                                            *  
+ ******************************************************************************/ 
+main(){
+	 
+	 CLK->CKDIVR = 0; 
+	  
+	 ioInit();
+	 timerInit();
+	 ///commInit();
+	 
+	 enableInterrupts();
+	 
+	 lcdInit();
+	 lcd_clear();
+	 lcd_write(LINE_1, FALSE);
+	 lcd_write_string	 (" UNIP HEALT CARE");
+	 lcd_write(LINE_2, FALSE);
+	 lcd_write_string	 ("    BEM VINDO   ");
+	 while( contador_temporizador < 3000) // 3 segundos
+	 lcd_clear();
+	 
+	 while (1){
+		 
+		 atualiza_menu      ();
+		 atualiza_display   ();
+		 leitura_comunicacao();
+		 //tx_uart            ();
+		 	
+	  }			
+}
+
+
+void leitura_comunicacao(){
+	if(!GPIO_ReadInputPin(BT_START)){
+		controle = 1;
+	}
+	if(!GPIO_ReadInputPin(BT_PAUSE)){
+		controle = 2;
+	}
+	if(!GPIO_ReadInputPin(BT_VOL_MAIS)){
+		controle = 3;
+	}
+	if(!GPIO_ReadInputPin(BT_VOL_MENOS)){
+		controle = 4;
+	}
+}
+
+/*******************************************************************************
+ * atualiza_menu();                                                            *
+ *                                                                             *
+ * Procedimento de seleção do estado do programa;                              *
+ *                                                                             *
+ * void -> não recebe parâmetros;                                              *
+ *                                                                             *
+ * void -> não retorna valor;                                                  *
+ ******************************************************************************/
+void atualiza_menu(void){
+	
+	switch(controle){
+		 
+		case 1:
+				GPIO_WriteHigh(BT_START); 
+		break;
+		 
+		case 2:
+			
+		 GPIO_WriteHigh(BT_PAUSE);
+		break;
+		 
+		case 3:
+			GPIO_WriteHigh(BT_VOL_MAIS);
+		break;
+		 
+		case 4:
+			GPIO_WriteHigh(BT_VOL_MENOS);
+		break;
+		 
+	}
+	for(i=0; i< 200; i++){}
+	GPIO_WriteLow(OUT_START); 
+	GPIO_WriteLow(OUT_PAUSE);
+	GPIO_WriteLow(OUT_VOL_MAIS);
+	GPIO_WriteLow(OUT_VOL_MENOS);
+	controle=0;
+}
+	
+/*******************************************************************************
+ * void ioInit(void);                                                          *
+ *                                                                             *
+ * Inicialização dos IO's                                                      *
+ *                                                                             *
+ ******************************************************************************/
+void ioInit(void){	 
+	 	 
+	 GPIO_Init(BT_START,   GPIO_MODE_IN_FL_NO_IT);
+	 GPIO_Init(BT_VOL_MAIS,		GPIO_MODE_IN_FL_NO_IT);
+	 GPIO_Init(BT_VOL_MENOS,  GPIO_MODE_IN_FL_NO_IT);
+	 GPIO_Init(BT_PAUSE,  		GPIO_MODE_IN_FL_NO_IT);
+	 	 
+	 GPIO_Init(OUT_START,     GPIO_MODE_OUT_PP_LOW_SLOW);
+	 GPIO_Init(OUT_PAUSE,   	GPIO_MODE_OUT_PP_LOW_SLOW);
+	 GPIO_Init(OUT_VOL_MAIS,  GPIO_MODE_OUT_PP_LOW_SLOW);
+	 GPIO_Init(OUT_VOL_MENOS, GPIO_MODE_OUT_PP_LOW_SLOW);
+	 
+	 GPIO_Init(LCD_E,    GPIO_MODE_OUT_PP_LOW_SLOW);
+	 GPIO_Init(LCD_RS,   GPIO_MODE_OUT_PP_LOW_SLOW);
+	 GPIO_Init(LCD_DB4,  GPIO_MODE_OUT_PP_LOW_SLOW);
+	 GPIO_Init(LCD_DB5,  GPIO_MODE_OUT_PP_LOW_SLOW);
+	 GPIO_Init(LCD_DB6,  GPIO_MODE_OUT_PP_LOW_SLOW);
+	 GPIO_Init(LCD_DB7,  GPIO_MODE_OUT_PP_LOW_SLOW);
+}
+	
+
+
+/*******************************************************************************
+* timerInit();                                                                 *
+*                                                                              *
+* Procedimento de configuração de Timer                                        *
+*                                                                              *
+* void -> não recebe parâmetros;                                               *
+*                                                                              *
+* void -> não retorna valor;                                                   *
+*                                                                              *
+* Configurações de Timer:                                                      *
+*                                                                              *
+* Timer 4:                                                                     *
+* Prescaler = 64                                                               *
+* Overflow  = 250                                      									       *
+*                                                     									       *
+* T = PRESCALER * OVERFLOW / FREQUENCIA DE CLOCK                               *
+*                                                                              *
+* T = 64 * 250 / 16.000.000 = 1ms                                              *
+*                                                                              *
+*******************************************************************************/
+void timerInit(void){
+	 TIM4_DeInit      ();                       
+   TIM4_TimeBaseInit(TIM4_PRESCALER_64, 249); 	
+   TIM4_ITConfig    (TIM4_IT_UPDATE, ENABLE);
+   TIM4_Cmd         (ENABLE);
+}
+
+
+	
+/*******************************************************************************
+ * lcdInit();                                                                  *
+ *                                                                             *
+ * Inicialização do Display;                                                   *
+ *                                                                             *
+ * void -> não recebe parâmetros;                                              *
+ *                                                                             *
+ * void -> não retorna valor;                                                  *
+ ******************************************************************************/
+void lcdInit(void){
+	 
+// GPIO_WriteLow(LCD_PORT, LCD_R_W);
+	 GPIO_WriteLow(LCD_RS);
+	 GPIO_WriteLow(LCD_E);   
+	 
+	 for(n = 0; n < 50000; n++){ nop(); }
+	 for(n = 0; n < 50000; n++){ nop(); }
+	 
+   lcd_write_nibble(0x03, FALSE);	 
+   lcd_write_nibble(0x03, FALSE); 
+	 
+   lcd_write(0x02, FALSE); //set to 4 bit interface, 1 line and 5*7 font
+   lcd_write(0x28, FALSE); //set to 4 bit interface, 2 line and 5*10 font
+   lcd_write(0x0C, FALSE); //set to 4 bit interface, 2 line and 5*7 font
+   lcd_write(0x01, FALSE); //clear display
+   lcd_write(0x06, FALSE); //move cursor right after write
+ 	 	
+}
+
+/*******************************************************************************
+ * lecd_set_line;                                                              *
+ *                                                                             *
+ * Posiciona o cursor na linha selecionada;                                    *
+ *                                                                             *
+ * uint8_t line -> linha selecionada;                                          *
+ *                                                                             *
+ * void -> não retorna valor;                                                  *
+ ******************************************************************************/
+void lcd_set_line(uint8_t line){
+	 
+   switch(line){
+		 
+		 case 1:
+			lcd_write(LINE_1, FALSE);
+     break;
+     
+     case 2:
+				lcd_write(LINE_2, FALSE);
+     break;
+     
+     case 3:
+				lcd_write(LINE_3, FALSE);
+     break;
+     
+     case 4:
+				lcd_write(LINE_4, FALSE);
+     break;
+		 
+		 default:
+				lcd_write(LINE_1, FALSE);
+		 break;
+		 
+    } 		
+  }
+	
+/*******************************************************************************
+ * lcd_clear();                                                                *
+ *                                                                             *
+ * Apaga o conteúdo do display;                                                *
+ *                                                                             *
+ * void -> não recebe parâmetros;                                              *
+ *                                                                             *
+ * void -> não retorna valor;                                                  *
+ *******************************************************************************/
+void lcd_clear(void){
+	 
+	 lcd_write(0x01, FALSE);
+	 
+  }
+
+/*******************************************************************************
+ * lcd_write(data, type);                                                      *
+ *                                                                             *
+ * Envia um byte para o display;                                               *
+ *                                                                             *
+ * uint8_t data -> endereço do buffer de envio;                                *
+ * uint8_t type -> seleção: TRUE = caractere, FALSE = comando;                 *
+ *                                                                             *
+ * void -> não retorna valor;                                                  *
+ *******************************************************************************/
+void lcd_write(uint8_t data, uint8_t type){
+	 
+   for(n = 0; n < 600; n++){ nop(); }
+	 
+   lcd_write_nibble(data >> 4, type); //WRITE THE UPPER NIBBLE
+	 lcd_write_nibble(data,      type); //WRITE THE LOWER NIBBLE
+	 
+  }
+	
+/*******************************************************************************
+ * lcd_write_nibble(data, type);                                               *
+ *                                                                             *
+ * Envia um nibble para o display;                                             *
+ *                                                                             *
+ * uint8_t data -> endereço do buffer de envio;                                *
+ * uint8_t type -> seleção: TRUE = caractere, FALSE = comando;                 *
+ *                                                                             *
+ * void -> não retorna valor;                                                  *
+ ******************************************************************************/ 
+void lcd_write_nibble(uint8_t data, uint8_t type){
+	 
+   GPIO_Write(LCD_PORT, (data << 2) & 0x3C);
+	 
+	 if(type == 0){ 
+	   
+		 GPIO_WriteLow(LCD_RS);
+     
+		} else {
+			
+		 GPIO_WriteHigh(LCD_RS);
+     
+		}
+   
+    GPIO_WriteHigh(LCD_E);    
+		GPIO_WriteLow (LCD_E);
+	 
+  }
+ 
+/*******************************************************************************
+ * lcd_write_string(&string);                                                  *
+ *                                                                             *
+ * Envia uma string ao display;                                                *
+ *                                                                             *
+ * uint8_t * sting -> endereço do buffer de envio;                             *
+ *                                                                             *
+ * void -> não retorna valor;                                                  *
+ ******************************************************************************/
+ void lcd_write_string(const uint8_t *string){
+	 
+	 while(*string){
+	   
+		 lcd_write(*string++, TRUE);
+		}
+}
+	
+/*******************************************************************************
+ * atualiza_display();                                                         *
+ *                                                                             *
+ * Procedimento de atualização das mensagens no display;                       *
+ *                                                                             *
+ * 																		                                         *
+ * 																			                                       *
+ *                                                                             *
+ * void -> não retorna valor;                                                  *
+ ******************************************************************************/
+void atualiza_display(void){
+	 
+	 switch (controle) {
+		 case 0:
+				lcd_clear();
+				lcd_write_string	 (" UNIP HEALT CARE");
+				lcd_write(LINE_2, FALSE);
+				lcd_write_string	 ("   AGUARDANDO   ");
+		 break;
+		 
+		 case 1:
+				lcd_clear();
+				lcd_write(LINE_2, FALSE);
+				lcd_write_string	 ("   GRAVANDO    ");		   
+		 break;
+		 
+		 case 2:
+				lcd_clear();
+				lcd_write(LINE_2, FALSE);
+				lcd_write_string	 ("   CONCLUIDO   ");	
+		 break;
+	  }
+	}
