@@ -34,15 +34,21 @@ A gravação da eeprom da eeprom é feita de forma rotativa pois ela tem vida ú
 **MATERIAIS MINIMOS**
 
 sensor: http://www.baudaeletronica.com.br/sensor-de-proximidade-infravermelho-e18-d80nk.html
+
 display LCD: http://www.baudaeletronica.com.br/display-lcd-16x2-azul.html
+
 microcontrolador: https://produto.mercadolivre.com.br/MLB-1218797200-modulo-desenvolvimento-microcontrolador-st-stm8-stm8s003f3p6-_JM?quantity=1
+
 gravador/debuger: https://produto.mercadolivre.com.br/MLB-1132196907-programador-stm32-stm8-stlink-st-link-v2-mini-_JM
 
-A placa irá comutar a fita de led através de um TIP41 
-A caixa plastica é um modelo da patola: PB107
-Os botões de navegação são 3 push button
+A placa irá comutar a fita de led através de um TIP41.
+
+A caixa plastica é um modelo da patola: PB107.
+
+Os botões de navegação são 3 push button.
 
 Dúvidas? Sugesões? fala comigo: mrlcosta0@gmail.com
+
 Seu feedback e engajamento é muito importante pra mim.
 
 
