@@ -7,12 +7,11 @@ quando o estacionamento estiver cheio, a fita de led mudará de verde para verme
 Assim o senhor da portaria poderá ficar dentro de sua sala apenas verificando as carteirinhas.
 Peço a colaboração de todos.
 
-***************CONTRIBUIÇÃO***************
+*CONTRIBUIÇÃO*
+
 O projeto aceita contribuição e é open source, porém você precisa seguir as regras abaixo:
 
 Testar bem antes de colocar em prod. Você precisa abranger muitos fatores e todo código deve ser rigorosamente testado, se não, não aceitarei o pull request.
-
-O projeto não aceita coisas feitas com arduino por motivos de amadorismo.
 
 O projeto deve possuir o mínimo de boas práticas de código e prezar pelo entendimento alheio. No futuro outras pessoas irão dar manutenção.
 
