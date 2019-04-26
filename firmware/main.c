@@ -576,21 +576,21 @@ void atualiza_display(void){
 	 switch (controle) {
 		 case 0:
 				lcd_clear();
-				lcd_write_string	 (" UNIP HEALT CARE");
+				lcd_write_string	 ("                ");
 				lcd_write(LINE_2, FALSE);
-				lcd_write_string	 ("   AGUARDANDO   ");
+				lcd_write_string	 ("                ");
 		 break;
 		 
 		 case 1:
 				lcd_clear();
 				lcd_write(LINE_2, FALSE);
-				lcd_write_string	 ("   GRAVANDO    ");		   
+				lcd_write_string	 ("                ");		   
 		 break;
 		 
 		 case 2:
 				lcd_clear();
 				lcd_write(LINE_2, FALSE);
-				lcd_write_string	 ("   CONCLUIDO   ");	
+				lcd_write_string	 ("                ");	
 		 break;
 	  }
 	}

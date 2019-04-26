@@ -4,17 +4,17 @@
 
 #define LCD_PORT    		GPIOD
 
-//#define         			GPIOA, GPIO_PIN_1
-//#define    						GPIOA, GPIO_PIN_2
+#define	SINAL_VERMELHO	GPIOA, GPIO_PIN_1
+#define	SINAL_VERDE		GPIOA, GPIO_PIN_2
 #define	BUZZER        	GPIOA, GPIO_PIN_3
 //#define             	GPIOA, GPIO_PIN_4
 //#define             	GPIOA, GPIO_PIN_5
-//#define       				GPIOA, GPIO_PIN_6
+//#define       		GPIOA, GPIO_PIN_6
 
 //#define             	GPIOB, GPIO_PIN_0
 //#define             	GPIOB, GPIO_PIN_1
 //#define             	GPIOB, GPIO_PIN_2
-//#define      					GPIOB, GPIO_PIN_3
+//#define      			GPIOB, GPIO_PIN_3
 #define	BT_CONFIRMA     GPIOB, GPIO_PIN_4 //sem diodo pro vdd
 //#define             	GPIOB, GPIO_PIN_5
 //#define             	GPIOB, GPIO_PIN_6
