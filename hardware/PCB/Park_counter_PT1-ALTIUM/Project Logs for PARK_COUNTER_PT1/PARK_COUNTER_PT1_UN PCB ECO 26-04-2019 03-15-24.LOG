@@ -1,0 +1,3 @@
+Added Pin To Net: NetName=NetCN7_2 Pin=F6-1
+Added Pin To Net: NetName=NetCN1_1 Pin=F6-2
+Added Member To Class: ClassName=PARK_COUNTER_PT1_2 Member=Component F6 MINI_FUSE_BOARD_GLASS

@@ -55,23 +55,6 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document2]
-DocumentPath=PARK_COUNTER_PT1.PcbDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=JBHKOQRS
-
-[Document3]
 DocumentPath=PARK_COUNTER_PT1_1.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -88,7 +71,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=GNBUFIGX
 
-[Document4]
+[Document3]
 DocumentPath=PARK_COUNTER_PT1_UN.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -105,7 +88,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=UIUMYEQT
 
-[Document5]
+[Document4]
 DocumentPath=PARK_COUNTER_PT1_2.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
