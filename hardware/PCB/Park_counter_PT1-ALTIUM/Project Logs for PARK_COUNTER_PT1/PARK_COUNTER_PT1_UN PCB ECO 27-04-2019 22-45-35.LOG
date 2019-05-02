@@ -1,0 +1,17 @@
+Removed Pin From Net: NetName=NetBZ1_1 Pin=BZ1-1
+Change component parameters: Designator = "C5"; Footprint = "C_ELET_D8P5/3.5"; UniqueID = "\KTLGFHLP"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "470uF"; VariantName = "[No Variations]"
+Added Component: Designator=C19(C_ELET_D8P5/3.5)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "470uF"; VariantName = "[No Variations]"
+Added Component: Designator=D3(DO-35_1)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "SB3200"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C19-1
+Added Pin To Net: NetName=NetC2_2 Pin=C19-2
+Added Pin To Net: NetName=NetBZ1_1 Pin=D3-1
+Added Pin To Net: NetName=NetBZ1_2 Pin=D3-2
+Change Net Name : Old Net Name=NetBZ1_1 New Net Name=NetD3_1
+Added Member To Class: ClassName=PARK_COUNTER_PT1_1 Member=Component C19 C_ELET_D8P5_35
+Added Member To Class: ClassName=PARK_COUNTER_PT1_2 Member=Component D3 1N400X

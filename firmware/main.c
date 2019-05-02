@@ -11,6 +11,8 @@
 #include "stm8s.h"
 #include "stm8s_flash.h"
 #include "main.h"
+#include "stdio.h"
+
 
 /******************************************************************************
  * Declaração de variáveis globais:                                           *
@@ -20,6 +22,7 @@ uint8_t		controle															= 0;
 uint8_t		carros 																= 0;
 uint8_t		quantidade_vagas 											= 0;
 uint8_t		controle_buzzer 											= 0;
+uint8_t		modo_operacao													= TRAVA;
 
 uint16_t	n																			= 0;
 uint16_t	contador_debounce_sensor_entrada			= 0;
@@ -27,12 +30,17 @@ uint16_t	contador_debounce_sensor_saida				= 0;
 uint16_t	contador_debounce_bt_incremento				= 0;
 uint16_t	contador_debounce_bt_decremento				= 0;
 uint16_t	contador_debounce_bt_confirma					= 0;
+uint16_t	contador_delay												= 0;
 
 uint16_t	contador_buzzer												= 0;
 uint16_t	tempo_buzzer_incremento								= 0;
 uint16_t	tempo_buzzer_decremento								= 0;
 
-uint32_t	eeprom																= PRIMEIRO_ENDERECO_EEPROM; 
+uint32_t	eeprom																=	ULTIMO_ENDERECO_EEPROM -4;		//PRIMEIRO_ENDERECO_EEPROM; 
+
+char			buf_carros[3];
+char			buf_vagas[3];
+
 
 bool			sensor_entrada												= 0;
 bool			last_sensor_entrada										= 0;
@@ -43,7 +51,9 @@ bool			last_bt_incremento										= 0;
 bool			bt_decremento													= 0;
 bool			last_bt_decremento										= 0;
 bool			bt_confirma														= 0;
-
+bool			last_bt_confirma											= 0;
+bool			display_carros_atualizado							= 0;
+bool			display_vagas_atualizado							= 0;
 
 bool			buzzer_incremento											= 0;
 bool			buzzer_decremento											= 0;
@@ -58,10 +68,11 @@ void lcdInit							(void);
 void uartInit							(void);
 void uartDeInit						(void);
 
-void atualiza_menu				(void);
-void atualiza_display			(void);
-void leitura_comunicacao	(void);
-
+void atualiza_menu						(void);
+void atualiza_display_carros	(void);
+void atualiza_display_vagas		(void);
+void leitura_comunicacao			(void);
+void delay										(int delay);
 
 void checa_botao					(void);
 void checa_entradas				(void);
@@ -95,27 +106,111 @@ main(){
 	lcdInit();
 	lcd_clear();
 	mensagem_inicial_lcd();
-	checa_eeprom();
+	//checa_eeprom();
+	delay(2500);
+	lcd_clear();
 	while (1){
 		checa_entradas();
 		contagem_carros();
 		contagem_estacionamento();
-		
 		sinalizacao_buzzer();
+		atualiza_display_carros();
+		atualiza_display_vagas();
 	}
+}
+/*******************************************************************************
+ * atualiza_display_carros();                                                  *
+ *                                                                             *
+ * Procedimento de atualização do numero de carros no display;                 *
+ *                                                                             *
+ * 																		                                         *
+ * 																			                                       *
+ *                                                                             *
+ * void -> não retorna valor;                                                  *
+ ******************************************************************************/
+void atualiza_display_carros(void){
+	
+	if(display_carros_atualizado){return;}
+	
+	sprintf(buf_carros, "%03d", (int) carros );
+	lcd_write(LINE_1, FALSE);
+	lcd_write_string	 ("CARROS: ");
+	lcd_write(buf_carros[0],TRUE);
+	lcd_write(buf_carros[1],TRUE);
+	lcd_write(buf_carros[2],TRUE);
+	if (modo_operacao == CARROS){
+		lcd_write_string	 ("<--");
+	}
+	display_carros_atualizado = TRUE;
+	
+}
+
+/*******************************************************************************
+ * atualiza_display_vagas();                                                   *
+ *                                                                             *
+ * Procedimento de atualização do numero de vagas no display;                  *
+ *                                                                             *
+ * 																		                                         *
+ * 																			                                       *
+ *                                                                             *
+ * void -> não retorna valor;                                                  *
+ ******************************************************************************/
+void atualiza_display_vagas(void){
+	
+	if(display_vagas_atualizado){return;}
+	
+	sprintf(buf_vagas, "%03d", (int) quantidade_vagas );
+	lcd_write(LINE_2, FALSE);
+	lcd_write_string	 ("VAGAS : ");
+	lcd_write(buf_vagas[0],TRUE);
+	lcd_write(buf_vagas[1],TRUE);
+	lcd_write(buf_vagas[2],TRUE);
+	
+	if (modo_operacao == VAGAS){
+		lcd_write_string	 ("<--");
+	}
+	
+	display_vagas_atualizado = TRUE;
+}
+
+void delay(int delay){
+	uint16_t tempo_atual_delay = contador_delay;
+	while(tempo_atual_delay + delay >= contador_delay){nop();}
 }
 
 void contagem_estacionamento(){
+	
+	if(last_bt_confirma != bt_confirma){
+		last_bt_confirma 	= bt_confirma;
+		if(bt_confirma){
+			display_vagas_atualizado = FALSE;
+			display_carros_atualizado = FALSE;
+			lcd_clear();
+			if(modo_operacao < 2){
+				modo_operacao++;
+			}else{
+				modo_operacao = 0;
+			}
+		}
+	}
+	
+	if(	modo_operacao == TRAVA){return;}
+	
 	
 	if(last_bt_incremento != bt_incremento){
 		
 		last_bt_incremento 	= bt_incremento;
 		if(bt_incremento){
-			
-			if (quantidade_vagas < 255){
-				quantidade_vagas++;
+			if (modo_operacao == VAGAS){
+				if (quantidade_vagas < 255){
+					quantidade_vagas++;
+					display_vagas_atualizado = FALSE;
+				}
 			}else{
-					// mostra na tela "limite de contagem"
+				if (carros < 255){
+					carros++;
+					display_carros_atualizado = FALSE;
+				}
 			}
 			//grava_eeprom();
 		}
@@ -125,11 +220,16 @@ void contagem_estacionamento(){
 		
 		last_bt_decremento 	= bt_decremento;
 		if(bt_decremento){
-			
-			if (quantidade_vagas > 0){
-				quantidade_vagas--;
+			if (modo_operacao == VAGAS){
+				if (quantidade_vagas > 0){
+					quantidade_vagas--;
+					display_vagas_atualizado = FALSE;
+				}
 			}else{
-					// mostra na tela "limite de contagem"
+				if (carros > 0){
+					carros--;
+					display_carros_atualizado = FALSE;
+				}
 			}
 			//grava_eeprom();
 		}
@@ -178,12 +278,13 @@ void checa_eeprom(){
 	}
 	
 	if(eeprom > ULTIMO_ENDERECO_EEPROM ){ // se estourou  e não achou nada, volta pro inicio
-	
 		eeprom = PRIMEIRO_ENDERECO_EEPROM; 
-		carros = FLASH_ReadByte(ULTIMO_ENDERECO_EEPROM);
-		
+		carros = FLASH_ReadByte(PRIMEIRO_ENDERECO_EEPROM);
+		quantidade_vagas = FLASH_ReadByte(PRIMEIRO_ENDERECO_EEPROM+1);
 	}else{	
-		carros = FLASH_ReadByte(eeprom++);
+		carros = FLASH_ReadByte(eeprom);
+		quantidade_vagas = FLASH_ReadByte(++eeprom);
+		
 	}
 }
 
@@ -191,18 +292,23 @@ void grava_eeprom(){
 	
 	FLASH_Unlock(FLASH_MEMTYPE_DATA);
 	
-	if(eeprom==ULTIMO_ENDERECO_EEPROM){
+	if(eeprom>=ULTIMO_ENDERECO_EEPROM-1){
 		
 		eeprom = PRIMEIRO_ENDERECO_EEPROM;
-		FLASH_ProgramByte(eeprom++ , carros);
+		FLASH_ProgramByte(eeprom, carros);
+		FLASH_ProgramByte(++eeprom , quantidade_vagas);
 		FLASH_EraseByte(ULTIMO_ENDERECO_EEPROM);
+		FLASH_EraseByte(ULTIMO_ENDERECO_EEPROM-1);
+		FLASH_EraseByte(ULTIMO_ENDERECO_EEPROM-2);
 		
 	}else{
 		
-		FLASH_ProgramByte(eeprom++ , carros);
+		FLASH_ProgramByte(++eeprom, carros);
+		FLASH_ProgramByte(++eeprom , quantidade_vagas);
 		
-		if (eeprom != PRIMEIRO_ENDERECO_EEPROM + 1){
+		if (eeprom >= PRIMEIRO_ENDERECO_EEPROM + 3){
 			FLASH_EraseByte(eeprom - 2);
+			FLASH_EraseByte(eeprom - 3);
 		}
 		
 	}
@@ -211,10 +317,10 @@ void grava_eeprom(){
 }
 
 void mensagem_inicial_lcd(){
+	lcd_write(LINE_1, FALSE);
 	lcd_write_string	 ("  UNIVERSIDADE  ");
 	lcd_write(LINE_2, FALSE);
 	lcd_write_string	 (" FEDERAL DO ABC ");
-	lcd_clear();
 }
 
 void contagem_carros(){
@@ -227,6 +333,7 @@ void contagem_carros(){
 			if (carros < 255){
 				carros++;
 				incrementa_buzzer();
+				display_carros_atualizado = FALSE;
 			}else{
 					// mostra na tela "limite de contagem"
 				
@@ -242,6 +349,7 @@ void contagem_carros(){
 			if(carros > 0){
 				carros--;
 				decrementa_buzzer();
+				display_carros_atualizado = FALSE;
 			}else{
 					//mostra na tela "limite de contagem"
 				
@@ -510,7 +618,7 @@ void lcd_clear(void){
  *******************************************************************************/
 void lcd_write(uint8_t data, uint8_t type){
 	 
-	for(n = 0; n < 600; n++){ nop(); }
+	for(n = 0; n < 920; n++){ nop(); }
 	 
 	lcd_write_nibble(data >> 4, type); //WRITE THE UPPER NIBBLE
 	lcd_write_nibble(data,      type); //WRITE THE LOWER NIBBLE
@@ -559,39 +667,3 @@ void lcd_write_string(const uint8_t *string){
 		lcd_write(*string++, TRUE);
 	}
 }
-
-/*******************************************************************************
- * atualiza_display();                                                         *
- *                                                                             *
- * Procedimento de atualização das mensagens no display;                       *
- *                                                                             *
- * 																		                                         *
- * 																			                                       *
- *                                                                             *
- * void -> não retorna valor;                                                  *
- ******************************************************************************/
- /*
-void atualiza_display(void){
-	 
-	 switch (controle) {
-		 case 0:
-				lcd_clear();
-				lcd_write_string	 ("                ");
-				lcd_write(LINE_2, FALSE);
-				lcd_write_string	 ("                ");
-		 break;
-		 
-		 case 1:
-				lcd_clear();
-				lcd_write(LINE_2, FALSE);
-				lcd_write_string	 ("                ");		   
-		 break;
-		 
-		 case 2:
-				lcd_clear();
-				lcd_write(LINE_2, FALSE);
-				lcd_write_string	 ("                ");	
-		 break;
-	  }
-	}
-	*/

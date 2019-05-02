@@ -42,6 +42,7 @@ extern uint16_t	contador_debounce_bt_confirma;
 extern uint16_t	contador_debounce_bt_incremento;
 extern uint16_t	contador_debounce_bt_decremento;
 extern uint16_t	contador_buzzer;
+extern uint16_t	contador_delay;
 
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
@@ -441,6 +442,7 @@ INTERRUPT_HANDLER(TIM4_UPD_OVF_IRQHandler, 23)
 	contador_debounce_bt_incremento++;
 	contador_debounce_bt_decremento++;
 	contador_debounce_bt_confirma++;
+	contador_delay++;
 	
 	
 	

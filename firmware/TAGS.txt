@@ -252,6 +252,7 @@ BTR2	inc\stm8s.h	2180;"	member	struct:__anon53::__anon54::__anon60
 BT_CONFIRMA	inc\main.h	18;"	macro
 BT_DECREMENTO	inc\main.h	28;"	macro
 BT_INCREMENTO	inc\main.h	27;"	macro
+BUFSIZ	..\..\..\..\..\..\..\..\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	26;"	macro
 BUZZER	inc\main.h	9;"	macro
 BYTE_0	inc\stm8s.h	2685;"	macro
 BYTE_1	inc\stm8s.h	2686;"	macro
@@ -400,6 +401,7 @@ CAN_TSR_TXOK1	inc\stm8s.h	2241;"	macro
 CAN_TSR_TXOK2	inc\stm8s.h	2242;"	macro
 CAN_TX_IRQHandler	inc\stm8s_it.h	55;"	prototype	signature:(void)
 CAN_TypeDef	inc\stm8s.h	2212;"	typedef	typeref:struct:__anon53
+CARROS	inc\main.h	56;"	macro
 CCER1	inc\stm8s.h	1117;"	member	struct:TIM5_struct
 CCER1	inc\stm8s.h	610;"	member	struct:TIM1_struct
 CCER1	inc\stm8s.h	822;"	member	struct:TIM2_struct
@@ -759,6 +761,7 @@ EGR	inc\stm8s.h	818;"	member	struct:TIM2_struct
 EGR	inc\stm8s.h	942;"	member	struct:TIM3_struct
 EIER	inc\stm8s.h	2176;"	member	struct:__anon53::__anon54::__anon60
 ENABLE	inc\stm8s.h	223;"	enumerator	enum:__anon51
+EOF	..\..\..\..\..\..\..\..\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	27;"	macro
 ERROR	inc\stm8s.h	226;"	enumerator	enum:__anon52
 ESR	inc\stm8s.h	2175;"	member	struct:__anon53::__anon54::__anon60
 ETR	inc\stm8s.h	601;"	member	struct:TIM1_struct
@@ -853,7 +856,7 @@ F5R5	inc\stm8s.h	2166;"	member	struct:__anon53::__anon54::__anon59
 F5R6	inc\stm8s.h	2167;"	member	struct:__anon53::__anon54::__anon59
 F5R7	inc\stm8s.h	2168;"	member	struct:__anon53::__anon54::__anon59
 F5R8	inc\stm8s.h	2169;"	member	struct:__anon53::__anon54::__anon59
-FALSE	inc\main.h	63;"	macro
+FALSE	inc\main.h	68;"	macro
 FALSE	inc\stm8s.h	219;"	enumerator	enum:__anon49
 FAR	inc\stm8s.h	112;"	macro
 FAR	inc\stm8s.h	118;"	macro
@@ -1158,7 +1161,7 @@ INTERRUPT_HANDLER	inc\stm8s.h	2645;"	macro
 INTERRUPT_HANDLER_TRAP	inc\stm8s.h	2634;"	macro
 INTERRUPT_HANDLER_TRAP	inc\stm8s.h	2639;"	macro
 INTERRUPT_HANDLER_TRAP	inc\stm8s.h	2648;"	macro
-INTERRUPT_HANDLER_TRAP	src\stm8s_it.c	71;"	function
+INTERRUPT_HANDLER_TRAP	src\stm8s_it.c	72;"	function
 IN_RAM	inc\stm8s.h	159;"	macro
 IN_RAM	inc\stm8s.h	161;"	macro
 IN_RAM	inc\stm8s.h	163;"	macro
@@ -1385,7 +1388,7 @@ IWDG_RLR_RESET_VALUE	inc\stm8s.h	1606;"	macro
 IWDG_TypeDef	inc\stm8s.h	1599;"	typedef	typeref:struct:IWDG_struct
 IWDG_struct	inc\stm8s.h	1593;"	struct
 KR	inc\stm8s.h	1595;"	member	struct:IWDG_struct
-LCD_16X4	inc\main.h	77;"	macro
+LCD_16X4	inc\main.h	82;"	macro
 LCD_DB4	inc\main.h	33;"	macro
 LCD_DB5	inc\main.h	34;"	macro
 LCD_DB6	inc\main.h	35;"	macro
@@ -1393,14 +1396,14 @@ LCD_DB7	inc\main.h	36;"	macro
 LCD_E	inc\main.h	37;"	macro
 LCD_PORT	inc\main.h	5;"	macro
 LCD_RS	inc\main.h	29;"	macro
-LINE_1	inc\main.h	81;"	macro
-LINE_1	inc\main.h	90;"	macro
-LINE_2	inc\main.h	82;"	macro
-LINE_2	inc\main.h	91;"	macro
-LINE_3	inc\main.h	83;"	macro
-LINE_3	inc\main.h	92;"	macro
-LINE_4	inc\main.h	84;"	macro
-LINE_4	inc\main.h	93;"	macro
+LINE_1	inc\main.h	86;"	macro
+LINE_1	inc\main.h	95;"	macro
+LINE_2	inc\main.h	87;"	macro
+LINE_2	inc\main.h	96;"	macro
+LINE_3	inc\main.h	88;"	macro
+LINE_3	inc\main.h	97;"	macro
+LINE_4	inc\main.h	89;"	macro
+LINE_4	inc\main.h	98;"	macro
 LSI_FREQUENCY_MAX	inc\stm8s_awu.h	71;"	macro
 LSI_FREQUENCY_MIN	inc\stm8s_awu.h	70;"	macro
 LSI_VALUE	inc\stm8s.h	109;"	macro
@@ -1455,6 +1458,7 @@ NOPT3	inc\stm8s.h	1576;"	member	struct:OPT_struct
 NOPT4	inc\stm8s.h	1578;"	member	struct:OPT_struct
 NOPT5	inc\stm8s.h	1580;"	member	struct:OPT_struct
 NOPT7	inc\stm8s.h	1584;"	member	struct:OPT_struct
+NULL	..\..\..\..\..\..\..\..\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	30;"	macro
 NonHandledInterrupt	inc\stm8s_it.h	35;"	prototype	signature:(void)
 OARH	inc\stm8s.h	1318;"	member	struct:I2C_struct
 OARL	inc\stm8s.h	1317;"	member	struct:I2C_struct
@@ -1477,7 +1481,7 @@ OPT_struct	inc\stm8s.h	1568;"	struct
 PCKENR1	inc\stm8s.h	501;"	member	struct:CLK_struct
 PCKENR2	inc\stm8s.h	504;"	member	struct:CLK_struct
 PR	inc\stm8s.h	1596;"	member	struct:IWDG_struct
-PRIMEIRO_ENDERECO_EEPROM	inc\main.h	55;"	macro
+PRIMEIRO_ENDERECO_EEPROM	inc\main.h	61;"	macro
 PSCR	inc\stm8s.h	1053;"	member	struct:TIM4_struct
 PSCR	inc\stm8s.h	1121;"	member	struct:TIM5_struct
 PSCR	inc\stm8s.h	1253;"	member	struct:TIM6_struct
@@ -1544,6 +1548,8 @@ SAMPLE_QTY	inc\stm8s_analog.h	12;"	macro
 SENSOR_ENTRADA	inc\main.h	26;"	macro
 SENSOR_SAIDA	inc\main.h	25;"	macro
 SET	inc\stm8s.h	221;"	enumerator	enum:__anon50
+SINAL_VERDE	inc\main.h	8;"	macro
+SINAL_VERMELHO	inc\main.h	7;"	macro
 SMCR	inc\stm8s.h	1109;"	member	struct:TIM5_struct
 SMCR	inc\stm8s.h	1248;"	member	struct:TIM6_struct
 SMCR	inc\stm8s.h	600;"	member	struct:TIM1_struct
@@ -1616,11 +1622,11 @@ TDRH	inc\stm8s.h	382;"	member	struct:ADC2_struct
 TDRL	inc\stm8s.h	312;"	member	struct:ADC1_struct
 TDRL	inc\stm8s.h	383;"	member	struct:ADC2_struct
 TECR	inc\stm8s.h	2177;"	member	struct:__anon53::__anon54::__anon60
-TEMPO_DEBOUNCE_ACIONA	inc\main.h	68;"	macro
-TEMPO_DEBOUNCE_BT_CONFIRMA	inc\main.h	72;"	macro
-TEMPO_DEBOUNCE_BT_DECREMENTO	inc\main.h	71;"	macro
-TEMPO_DEBOUNCE_BT_INCREMENTO	inc\main.h	70;"	macro
-TEMPO_DEBOUNCE_DESACIONA	inc\main.h	69;"	macro
+TEMPO_DEBOUNCE_ACIONA	inc\main.h	73;"	macro
+TEMPO_DEBOUNCE_BT_CONFIRMA	inc\main.h	77;"	macro
+TEMPO_DEBOUNCE_BT_DECREMENTO	inc\main.h	76;"	macro
+TEMPO_DEBOUNCE_BT_INCREMENTO	inc\main.h	75;"	macro
+TEMPO_DEBOUNCE_DESACIONA	inc\main.h	74;"	macro
 TI1_Config	src\stm8s_tim1.c	2224;"	function	file:	signature:(uint8_t TIM1_ICPolarity, uint8_t TIM1_ICSelection, uint8_t TIM1_ICFilter)
 TI1_Config	src\stm8s_tim1.c	33;"	prototype	file:	signature:(uint8_t TIM1_ICPolarity, uint8_t TIM1_ICSelection, uint8_t TIM1_ICFilter)
 TI1_Config	src\stm8s_tim2.c	1214;"	function	file:	signature:(uint8_t TIM2_ICPolarity, uint8_t TIM2_ICSelection, uint8_t TIM2_ICFilter)
@@ -2661,8 +2667,9 @@ TINY	inc\stm8s.h	134;"	macro
 TLI_IRQHandler	inc\stm8s_it.h	40;"	prototype	signature:(void)
 TPR	inc\stm8s.h	2055;"	member	struct:__anon53
 TRAP_IRQHandler	inc\stm8s_it.h	39;"	prototype	signature:(void)
+TRAVA	inc\main.h	54;"	macro
 TRISER	inc\stm8s.h	1327;"	member	struct:I2C_struct
-TRUE	inc\main.h	62;"	macro
+TRUE	inc\main.h	67;"	macro
 TRUE	inc\stm8s.h	219;"	enumerator	enum:__anon49
 TSR	inc\stm8s.h	2054;"	member	struct:__anon53
 TXCRCR	inc\stm8s.h	1689;"	member	struct:SPI_struct
@@ -2941,8 +2948,9 @@ UART3_SR_TXE	inc\stm8s.h	1993;"	macro
 UART3_TX_IRQHandler	inc\stm8s_it.h	91;"	prototype	signature:(void)
 UART3_TypeDef	inc\stm8s.h	1970;"	typedef	typeref:struct:UART3_struct
 UART3_struct	inc\stm8s.h	1957;"	struct
-ULTIMO_ENDERECO_EEPROM	inc\main.h	56;"	macro
+ULTIMO_ENDERECO_EEPROM	inc\main.h	62;"	macro
 USE_STDPERIPH_DRIVER	inc\stm8s.h	86;"	macro
+VAGAS	inc\main.h	55;"	macro
 VECTOR_ID	inc\stm8s.h	2644;"	macro
 ValBit	inc\stm8s.h	2683;"	macro
 WR	inc\stm8s.h	1620;"	member	struct:WWDG_struct
@@ -2962,8 +2970,10 @@ _IAR_	inc\stm8s.h	77;"	macro
 _RAISONANCE_	inc\stm8s.h	75;"	macro
 __I	inc\stm8s.h	194;"	macro
 __IO	inc\stm8s.h	196;"	macro
-__MODS0__	..\..\..\..\..\..\..\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\mods0.h	11;"	macro
+__MODS0__	..\..\..\..\..\..\..\..\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\mods0.h	11;"	macro
 __O	inc\stm8s.h	195;"	macro
+__SIZE_T__	..\..\..\..\..\..\..\..\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	9;"	macro
+__STDIO__	..\..\..\..\..\..\..\..\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	6;"	macro
 __STM8S_ADC1_H	inc\stm8s_adc1.h	23;"	macro
 __STM8S_AWU_H	inc\stm8s_awu.h	24;"	macro
 __STM8S_CLK_H	inc\stm8s_clk.h	25;"	macro
@@ -2987,7 +2997,7 @@ __STM8S_TIM4_H	inc\stm8s_tim4.h	24;"	macro
 __STM8S_UART2_H	inc\stm8s_uart2.h	24;"	macro
 _stext	inc\stm8s_it.h	34;"	prototype	signature:(void)
 _vectab	stm8_interrupt_vector.c	14;"	variable
-adcInit	main.c	51;"	prototype	file:	signature:(void)
+adcInit	main.c	64;"	prototype	file:	signature:(void)
 adcValue	src\stms8s_analog.c	17;"	variable
 analogRun	inc\stm8s_analog.h	39;"	prototype	signature:(void)
 analogRun	src\stms8s_analog.c	69;"	function	signature:(void)
@@ -2998,49 +3008,63 @@ analog_buffer_reset	src\stms8s_analog.c	20;"	variable
 assert_failed	inc\stm8s_conf.h	99;"	prototype	signature:(uint8_t* file, uint32_t line)
 assert_param	inc\stm8s_conf.h	101;"	macro
 assert_param	inc\stm8s_conf.h	97;"	macro
-atualiza_display	main.c	59;"	prototype	file:	signature:(void)
-atualiza_menu	main.c	58;"	prototype	file:	signature:(void)
+atualiza_display_carros	main.c	131;"	function	signature:(void)
+atualiza_display_carros	main.c	72;"	prototype	file:	signature:(void)
+atualiza_display_vagas	main.c	158;"	function	signature:(void)
+atualiza_display_vagas	main.c	73;"	prototype	file:	signature:(void)
+atualiza_menu	main.c	71;"	prototype	file:	signature:(void)
 bool	inc\stm8s.h	219;"	typedef	typeref:enum:__anon49
-bt_confirma	main.c	42;"	variable
-bt_decremento	main.c	41;"	variable
-bt_incremento	main.c	40;"	variable
-buzzer_decremento	main.c	46;"	variable
-buzzer_incremento	main.c	45;"	variable
-carros	main.c	20;"	variable
+bt_confirma	main.c	53;"	variable
+bt_decremento	main.c	51;"	variable
+bt_incremento	main.c	49;"	variable
+buf_carros	main.c	41;"	variable
+buf_vagas	main.c	42;"	variable
+buzzer_decremento	main.c	59;"	variable
+buzzer_incremento	main.c	58;"	variable
+carros	main.c	22;"	variable
 channel	src\stms8s_analog.c	14;"	variable
-checa_botao	main.c	63;"	prototype	file:	signature:(void)
-checa_eeprom	main.c	134;"	function
-checa_eeprom	main.c	66;"	prototype	file:	signature:(void)
-checa_entradas	main.c	227;"	function	signature:(void)
-checa_entradas	main.c	64;"	prototype	file:	signature:(void)
-commInit	main.c	53;"	prototype	file:	signature:(void)
-contador_buzzer	main.c	30;"	variable
-contador_debounce_bt_confirma	main.c	28;"	variable
-contador_debounce_bt_decremento	main.c	27;"	variable
-contador_debounce_bt_incremento	main.c	26;"	variable
-contador_debounce_sensor_entrada	main.c	24;"	variable
-contador_debounce_sensor_saida	main.c	25;"	variable
-contagem_carros	main.c	181;"	function
-contagem_carros	main.c	65;"	prototype	file:	signature:(void)
-controle	main.c	19;"	variable
-controle_buzzer	main.c	21;"	variable
+checa_botao	main.c	77;"	prototype	file:	signature:(void)
+checa_eeprom	main.c	273;"	function
+checa_eeprom	main.c	81;"	prototype	file:	signature:(void)
+checa_entradas	main.c	368;"	function	signature:(void)
+checa_entradas	main.c	78;"	prototype	file:	signature:(void)
+commInit	main.c	66;"	prototype	file:	signature:(void)
+contador_buzzer	main.c	35;"	variable
+contador_debounce_bt_confirma	main.c	32;"	variable
+contador_debounce_bt_decremento	main.c	31;"	variable
+contador_debounce_bt_incremento	main.c	30;"	variable
+contador_debounce_sensor_entrada	main.c	28;"	variable
+contador_debounce_sensor_saida	main.c	29;"	variable
+contador_delay	main.c	33;"	variable
+contagem_carros	main.c	320;"	function
+contagem_carros	main.c	79;"	prototype	file:	signature:(void)
+contagem_estacionamento	main.c	181;"	function
+contagem_estacionamento	main.c	80;"	prototype	file:	signature:(void)
+controle	main.c	21;"	variable
+controle_buzzer	main.c	24;"	variable
 dataStatus	src\stms8s_analog.c	15;"	variable
-decrementa_buzzer	main.c	107;"	function
-decrementa_buzzer	main.c	70;"	prototype	file:	signature:(void)
+decrementa_buzzer	main.c	246;"	function
+decrementa_buzzer	main.c	85;"	prototype	file:	signature:(void)
+delay	main.c	176;"	function	signature:(int delay)
+delay	main.c	75;"	prototype	file:	signature:(int delay)
 disableInterrupts	inc\stm8s.h	2602;"	macro
 disableInterrupts	inc\stm8s.h	2611;"	macro
 disableInterrupts	inc\stm8s.h	2621;"	macro
-eeprom	main.c	34;"	variable
+display_carros_atualizado	main.c	55;"	variable
+display_vagas_atualizado	main.c	56;"	variable
+eeprom	main.c	39;"	variable
 enableInterrupts	inc\stm8s.h	2601;"	macro
 enableInterrupts	inc\stm8s.h	2610;"	macro
 enableInterrupts	inc\stm8s.h	2620;"	macro
-grava_eeprom	main.c	151;"	function
-grava_eeprom	main.c	67;"	prototype	file:	signature:(void)
+getchar	..\..\..\..\..\..\..\..\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	15;"	prototype	signature:(void)
+gets	..\..\..\..\..\..\..\..\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	16;"	prototype	signature:(char *s)
+grava_eeprom	main.c	290;"	function
+grava_eeprom	main.c	82;"	prototype	file:	signature:(void)
 halt	inc\stm8s.h	2608;"	macro
 halt	inc\stm8s.h	2617;"	macro
 halt	inc\stm8s.h	2627;"	macro
-incrementa_buzzer	main.c	102;"	function
-incrementa_buzzer	main.c	69;"	prototype	file:	signature:(void)
+incrementa_buzzer	main.c	241;"	function
+incrementa_buzzer	main.c	84;"	prototype	file:	signature:(void)
 int16_t	inc\stm8s.h	200;"	typedef
 int32_t	inc\stm8s.h	201;"	typedef
 int8_t	inc\stm8s.h	199;"	typedef
@@ -3048,31 +3072,39 @@ interrupt_handler	stm8_interrupt_vector.c	11;"	member	struct:interrupt_vector	fi
 interrupt_handler_t	stm8_interrupt_vector.c	7;"	typedef	file:
 interrupt_instruction	stm8_interrupt_vector.c	10;"	member	struct:interrupt_vector	file:
 interrupt_vector	stm8_interrupt_vector.c	9;"	struct	file:
-ioInit	main.c	340;"	function	signature:(void)
-ioInit	main.c	52;"	prototype	file:	signature:(void)
-last_sensor_entrada	main.c	37;"	variable
-last_sensor_saida	main.c	39;"	variable
-lcdInit	main.c	395;"	function	signature:(void)
-lcdInit	main.c	54;"	prototype	file:	signature:(void)
-lcd_clear	main.c	457;"	function	signature:(void)
-lcd_clear	main.c	72;"	prototype	file:	signature:(void)
-lcd_set_line	main.c	421;"	function	signature:(uint8_t line)
-lcd_set_line	main.c	74;"	prototype	file:	signature:(uint8_t line)
-lcd_write	main.c	472;"	function	signature:(uint8_t data, uint8_t type)
-lcd_write	main.c	75;"	prototype	file:	signature:(uint8_t data, uint8_t type)
-lcd_write_nibble	main.c	490;"	function	signature:(uint8_t data, uint8_t type)
-lcd_write_nibble	main.c	76;"	prototype	file:	signature:(uint8_t data, uint8_t type)
-lcd_write_string	main.c	516;"	function	signature:(const uint8_t *string)
-lcd_write_string	main.c	73;"	prototype	file:	signature:(const uint8_t *string)
-leitura_comunicacao	main.c	60;"	prototype	file:	signature:(void)
-main	main.c	85;"	function
-mensagem_inicial_lcd	main.c	174;"	function
-mensagem_inicial_lcd	main.c	77;"	prototype	file:	signature:(void)
-n	main.c	23;"	variable
+ioInit	main.c	481;"	function	signature:(void)
+ioInit	main.c	65;"	prototype	file:	signature:(void)
+last_bt_confirma	main.c	54;"	variable
+last_bt_decremento	main.c	52;"	variable
+last_bt_incremento	main.c	50;"	variable
+last_sensor_entrada	main.c	46;"	variable
+last_sensor_saida	main.c	48;"	variable
+lcdInit	main.c	536;"	function	signature:(void)
+lcdInit	main.c	67;"	prototype	file:	signature:(void)
+lcd_clear	main.c	598;"	function	signature:(void)
+lcd_clear	main.c	87;"	prototype	file:	signature:(void)
+lcd_set_line	main.c	562;"	function	signature:(uint8_t line)
+lcd_set_line	main.c	89;"	prototype	file:	signature:(uint8_t line)
+lcd_write	main.c	613;"	function	signature:(uint8_t data, uint8_t type)
+lcd_write	main.c	90;"	prototype	file:	signature:(uint8_t data, uint8_t type)
+lcd_write_nibble	main.c	631;"	function	signature:(uint8_t data, uint8_t type)
+lcd_write_nibble	main.c	91;"	prototype	file:	signature:(uint8_t data, uint8_t type)
+lcd_write_string	main.c	657;"	function	signature:(const uint8_t *string)
+lcd_write_string	main.c	88;"	prototype	file:	signature:(const uint8_t *string)
+leitura_comunicacao	main.c	74;"	prototype	file:	signature:(void)
+main	main.c	100;"	function
+mensagem_inicial_lcd	main.c	313;"	function
+mensagem_inicial_lcd	main.c	92;"	prototype	file:	signature:(void)
+modo_operacao	main.c	25;"	variable
+n	main.c	27;"	variable
 nop	inc\stm8s.h	2605;"	macro
 nop	inc\stm8s.h	2614;"	macro
 nop	inc\stm8s.h	2624;"	macro
 ponteiro	src\stms8s_analog.c	21;"	variable
+printf	..\..\..\..\..\..\..\..\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	17;"	prototype	signature:(char *format, ...)
+putchar	..\..\..\..\..\..\..\..\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	18;"	prototype	signature:(char c)
+puts	..\..\..\..\..\..\..\..\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	19;"	prototype	signature:(char *s)
+quantidade_vagas	main.c	23;"	variable
 rim	inc\stm8s.h	2603;"	macro
 rim	inc\stm8s.h	2612;"	macro
 rim	inc\stm8s.h	2622;"	macro
@@ -3080,26 +3112,30 @@ s16	inc\stm8s.h	211;"	typedef
 s32	inc\stm8s.h	210;"	typedef
 s8	inc\stm8s.h	212;"	typedef
 sample	src\stms8s_analog.c	13;"	variable
-sensor_entrada	main.c	36;"	variable
-sensor_saida	main.c	38;"	variable
+scanf	..\..\..\..\..\..\..\..\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	20;"	prototype	signature:(char *format, ...)
+sensor_entrada	main.c	45;"	variable
+sensor_saida	main.c	47;"	variable
 sim	inc\stm8s.h	2604;"	macro
 sim	inc\stm8s.h	2613;"	macro
 sim	inc\stm8s.h	2623;"	macro
-sinalizacao_buzzer	main.c	112;"	function
-sinalizacao_buzzer	main.c	68;"	prototype	file:	signature:(void)
+sinalizacao_buzzer	main.c	251;"	function
+sinalizacao_buzzer	main.c	83;"	prototype	file:	signature:(void)
+size_t	..\..\..\..\..\..\..\..\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	10;"	typedef
+sprintf	..\..\..\..\..\..\..\..\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	22;"	prototype	signature:(char *s, char *format, ...)
+sscanf	..\..\..\..\..\..\..\..\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	21;"	prototype	signature:(char *s, char *format, ...)
 table	src\stms8s_analog.c	23;"	variable
-tempo_buzzer_decremento	main.c	32;"	variable
-tempo_buzzer_incremento	main.c	31;"	variable
-timerInit	main.c	379;"	function	signature:(void)
-timerInit	main.c	50;"	prototype	file:	signature:(void)
+tempo_buzzer_decremento	main.c	37;"	variable
+tempo_buzzer_incremento	main.c	36;"	variable
+timerInit	main.c	520;"	function	signature:(void)
+timerInit	main.c	63;"	prototype	file:	signature:(void)
 trap	inc\stm8s.h	2606;"	macro
 trap	inc\stm8s.h	2615;"	macro
 trap	inc\stm8s.h	2625;"	macro
 u16	inc\stm8s.h	215;"	typedef
 u32	inc\stm8s.h	214;"	typedef
 u8	inc\stm8s.h	216;"	typedef
-uartDeInit	main.c	56;"	prototype	file:	signature:(void)
-uartInit	main.c	55;"	prototype	file:	signature:(void)
+uartDeInit	main.c	69;"	prototype	file:	signature:(void)
+uartInit	main.c	68;"	prototype	file:	signature:(void)
 uint16_t	inc\stm8s.h	205;"	typedef
 uint32_t	inc\stm8s.h	206;"	typedef
 uint8_t	inc\stm8s.h	204;"	typedef

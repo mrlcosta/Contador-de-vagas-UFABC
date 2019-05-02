@@ -77,7 +77,7 @@ ExternDep= src\stm8s_tim4.c  "C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8
 ExternDep= src\stm8s_tim4.c  "C:\Program Files (x86)\COSMIC\32K_Compilers\CXSTM8\Hstm8\mods0.h"  inc\stm8s_tim4.h inc\stm8s.h inc\stm8s_conf.h inc\stm8s_awu.h inc\stm8s_clk.h  inc\stm8s_exti.h inc\stm8s_gpio.h inc\stm8s_itc.h inc\stm8s_rst.h  inc\stm8s_tim1.h inc\stm8s_tim2.h inc\stm8s_tim3.h
 
 [Root.Source Files.main.c.Config.0]
-ExternDep= main.c  "C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Hstm8\mods0.h"  inc\stm8s.h inc\stm8s_conf.h inc\stm8s_awu.h inc\stm8s_clk.h inc\stm8s_exti.h  inc\stm8s_gpio.h inc\stm8s_itc.h inc\stm8s_rst.h inc\stm8s_tim1.h  inc\stm8s_tim2.h inc\stm8s_tim4.h inc\stm8s_flash.h inc\main.h
+ExternDep= main.c  "C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Hstm8\mods0.h"  inc\stm8s.h inc\stm8s_conf.h inc\stm8s_awu.h inc\stm8s_clk.h inc\stm8s_exti.h  inc\stm8s_gpio.h inc\stm8s_itc.h inc\stm8s_rst.h inc\stm8s_tim1.h  inc\stm8s_tim2.h inc\stm8s_tim4.h inc\stm8s_flash.h inc\main.h  "C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Hstm8\stdio.h"
 
 [Root.Source Files.main.c.Config.1]
 ExternDep= main.c  "C:\Program Files (x86)\COSMIC\32K_Compilers\CXSTM8\Hstm8\mods0.h"  inc\stm8s.h inc\stm8s_conf.h inc\stm8s_awu.h inc\stm8s_clk.h inc\stm8s_exti.h  inc\stm8s_gpio.h inc\stm8s_itc.h inc\stm8s_rst.h inc\stm8s_tim1.h  inc\stm8s_tim2.h inc\stm8s_tim3.h inc\stm8s_tim4.h inc\stm8s_io.h  inc\stm8s_lcd.h inc\stm8s_timer.h inc\stm8s_analog.h inc\stm8s_screen.h  inc\test.h
