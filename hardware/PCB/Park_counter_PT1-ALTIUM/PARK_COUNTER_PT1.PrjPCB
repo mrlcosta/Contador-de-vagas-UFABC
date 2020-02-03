@@ -28,7 +28,7 @@ DItemRevisionGUID=
 ReportSuppressedErrorsInMessages=0
 FSMCodingStyle=eFMSDropDownList_OneProcess
 FSMEncodingStyle=eFMSDropDownList_OneHot
-OutputPath=
+OutputPath=Project Outputs for PARK_COUNTER_PT1
 LogFolderPath=
 ManagedProjectGUID=
 IncludeDesignInRelease=0
@@ -110,7 +110,26 @@ UniqueID=418E9FE2-0D10-4F4E-9E21-4D58E40A702A
 Description=PARK_COUNTER_PT1
 AllowFabrication=0
 ParameterCount=0
-VariationCount=0
+VariationCount=19
+Variation1=Designator=F1|UniqueId=\JCAKCBAS|Kind=1|AlternatePart= 
+Variation2=Designator=F2|UniqueId=\MDHYMWVI|Kind=1|AlternatePart= 
+Variation3=Designator=F4|UniqueId=\QHPMQTJX|Kind=1|AlternatePart= 
+Variation4=Designator=F5|UniqueId=\ALWSYNNT|Kind=1|AlternatePart= 
+Variation5=Designator=F6|UniqueId=\LCGESTUG|Kind=1|AlternatePart= 
+Variation6=Designator=F7|UniqueId=\OXAPTQEQ|Kind=1|AlternatePart= 
+Variation7=Designator=C1|UniqueId=\KWFSCEKW|Kind=1|AlternatePart= 
+Variation8=Designator=C2|UniqueId=\GSTEIGQE|Kind=1|AlternatePart= 
+Variation9=Designator=CI2|UniqueId=\AWKBIDLF|Kind=1|AlternatePart= 
+Variation10=Designator=C7|UniqueId=\RSVHSCDK|Kind=1|AlternatePart= 
+Variation11=Designator=C9|UniqueId=\HIDSYUWT|Kind=1|AlternatePart= 
+Variation12=Designator=C11|UniqueId=\MEFTEXOX|Kind=1|AlternatePart= 
+Variation13=Designator=C12|UniqueId=\FUWNDOPJ|Kind=1|AlternatePart= 
+Variation14=Designator=R9|UniqueId=\CLWSGMKM|Kind=1|AlternatePart= 
+Variation15=Designator=R10|UniqueId=\NNMGEBIW|Kind=1|AlternatePart= 
+Variation16=Designator=R11|UniqueId=\XAJPFKRC|Kind=1|AlternatePart= 
+Variation17=Designator=R12|UniqueId=\LJKGAKQH|Kind=1|AlternatePart= 
+Variation18=Designator=C15|UniqueId=\MQCNVFWS|Kind=1|AlternatePart= 
+Variation19=Designator=C16|UniqueId=\DDEUUFUH|Kind=1|AlternatePart= 
 ParamVariationCount=0
 
 [Configuration1]
@@ -124,12 +143,12 @@ ContentTypeGUID=CB6F2064-E317-11DF-B822-12313F0024A2
 ConfigurationType=Source
 
 [Generic_EDE]
-OutputDir=
+OutputDir=Project Outputs for PARK_COUNTER_PT1
 
 [OutputGroup1]
 Name=Netlist Outputs
 Description=
-TargetPrinter=HP Deskjet 2050 J510 series
+TargetPrinter=XP-240 Series(Rede)
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=CadnetixNetlist
 OutputName1=Cadnetix Netlist
@@ -235,7 +254,7 @@ OutputDefault20=0
 [OutputGroup2]
 Name=Simulator Outputs
 Description=
-TargetPrinter=HP Deskjet 2050 J510 series
+TargetPrinter=XP-240 Series(Rede)
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 
 [OutputGroup3]
@@ -307,7 +326,7 @@ PageOptions10=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|Print
 [OutputGroup4]
 Name=Assembly Outputs
 Description=
-TargetPrinter=HP Deskjet 2050 J510 series
+TargetPrinter=XP-240 Series(Rede)
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=Assembly
 OutputName1=Assembly Drawings
@@ -329,7 +348,7 @@ OutputDefault3=0
 [OutputGroup5]
 Name=Fabrication Outputs
 Description=
-TargetPrinter=HP Deskjet 2050 J510 series
+TargetPrinter=XP-240 Series(Rede)
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=CompositeDrill
 OutputName1=Composite Drill Drawing
@@ -409,7 +428,7 @@ Configuration12_Item2=AddToAllLayerClasses.Set= |AddToAllPlots.Set=SerializeLaye
 [OutputGroup6]
 Name=Report Outputs
 Description=
-TargetPrinter=HP Deskjet 2050 J510 series
+TargetPrinter=XP-240 Series(Rede)
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=BOM_PartType
 OutputName1=Bill of Materials
@@ -446,7 +465,7 @@ OutputDefault6=0
 [OutputGroup7]
 Name=Other Outputs
 Description=
-TargetPrinter=HP Deskjet 2050 J510 series
+TargetPrinter=XP-240 Series(Rede)
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=Text Print
 OutputName1=Text Print
@@ -626,7 +645,7 @@ PageOptions29=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|Print
 [OutputGroup8]
 Name=Validation Outputs
 Description=
-TargetPrinter=HP Deskjet 2050 J510 series
+TargetPrinter=XP-240 Series(Rede)
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=Component states check
 OutputName1=Server's components states check
@@ -665,7 +684,7 @@ OutputDefault6=0
 [OutputGroup9]
 Name=Export Outputs
 Description=
-TargetPrinter=HP Deskjet 2050 J510 series
+TargetPrinter=XP-240 Series(Rede)
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=AutoCAD dwg/dxf PCB
 OutputName1=AutoCAD dwg/dxf File PCB
@@ -716,7 +735,7 @@ OutputDefault9=0
 [OutputGroup10]
 Name=PostProcess Outputs
 Description=
-TargetPrinter=HP Deskjet 2050 J510 series
+TargetPrinter=XP-240 Series(Rede)
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=Copy Files
 OutputName1=Copy Files

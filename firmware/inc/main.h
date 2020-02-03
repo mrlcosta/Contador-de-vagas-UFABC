@@ -75,6 +75,9 @@
 #define	TEMPO_DEBOUNCE_BT_INCREMENTO	30
 #define	TEMPO_DEBOUNCE_BT_DECREMENTO	30
 #define	TEMPO_DEBOUNCE_BT_CONFIRMA		30
+#define	TEMPO_BUZZER_INCREMENTO				500
+#define	TEMPO_BUZZER_DECREMENTO				100
+
 
 /*******************************************************************************
 * LCD:                                                                       	 *
